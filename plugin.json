@@ -2,31 +2,73 @@
   "$schema": "https://locaryn.dev/schema/plugin.json/v0.1",
   "apiVersion": "0.1",
   "name": "plugin-3d-gen",
-  "version": "1.0.0",
-  "description": "3D asset and mesh generation extension (InstantMesh, Tripo3D, Gaussian Splatting).",
+  "version": "1.1.0",
+  "description": "Extension autonome de génération d'objets et maillages 3D (InstantMesh, TripoSR, Shap-E, GLTF/OBJ) avec son interface de studio intégrée.",
   "author": "Locaryn Team",
   "license": "Apache-2.0",
   "homepage": "https://github.com/Locaryn/plugin-3d-gen",
   "repository": "https://github.com/Locaryn/plugin-3d-gen",
-  "keywords": ["3d-generation", "mesh", "gltf", "obj", "3d-asset"],
+  "keywords": [
+    "3d-generation",
+    "mesh",
+    "gltf",
+    "obj",
+    "3d-asset",
+    "instantmesh",
+    "triposr"
+  ],
   "permissions": {
-    "files_read": true,
-    "files_write": true
+    "mcp": {
+      "reason": "Lancer le moteur 3D local fourni par l'extension."
+    },
+    "files.read": {
+      "reason": "Lire les modèles 3D et images sources du stockage de l'extension."
+    },
+    "files.write": {
+      "reason": "Écrire les maillages générés et les textures produites."
+    },
+    "network": {
+      "reason": "Télécharger les modèles 3D depuis HuggingFace."
+    }
   },
-  "capabilities": ["3d-gen"],
+  "components": {
+    "skills": [
+      "SKILL.md"
+    ],
+    "mcp": "mcp/mcp.json"
+  },
+  "capabilities": [
+    "3d-gen"
+  ],
   "ui_contributions": {
+    "slots": [
+      {
+        "id": "3d-gen-catalog",
+        "slot": "marketplace.catalogs",
+        "order": 20,
+        "type": "data",
+        "label": "Modèles de génération 3D",
+        "icon": "cube",
+        "entry": "dist/marketplace.json",
+        "hint": "Ajoute le filtre « Génération 3D » et ses modèles au catalogue"
+      },
+      {
+        "id": "3d-gen-studio",
+        "slot": "studio.tabs",
+        "order": 20,
+        "label": "Génération 3D",
+        "icon": "cube",
+        "type": "custom-element",
+        "entry": "dist/ui.js",
+        "tag": "locaryn-3d-gen-panel",
+        "hint": "Génération et visualisation de maillages 3D"
+      }
+    ],
     "nav_items": [
       {
         "id": "studio",
         "label": "Studio de génération",
         "icon": "image"
-      }
-    ],
-    "studio_tabs": [
-      {
-        "id": "3d",
-        "label": "3D",
-        "icon": "extensions"
       }
     ]
   }

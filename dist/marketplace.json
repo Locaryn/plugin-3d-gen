@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "refreshUrl": "https://raw.githubusercontent.com/Locaryn/plugin-3d-gen/main/dist/marketplace.json",
+  "owns": [
+    "triposr",
+    "instantmesh",
+    "shap-e",
+    "lgm",
+    "splatting"
+  ],
+  "categories": [
+    {
+      "id": "3d-generation",
+      "label": "Génération 3D",
+      "icon": "cube",
+      "matches": [
+        "3d-gen"
+      ],
+      "requires": [
+        "3d-gen"
+      ]
+    }
+  ],
+  "models": [
+    {
+      "id": "triposr-v1",
+      "name": "TripoSR Fast 3D",
+      "brand": "Tripo AI / Stability",
+      "description": "Génération rapide de maillages 3D texturés 0.5s sous GPU.",
+      "license": "MIT",
+      "releaseDate": "2024-03-04",
+      "releaseYear": 2024,
+      "capabilities": [
+        "3d-gen"
+      ],
+      "variants": [
+        {
+          "size": "FP16 · 0.4B",
+          "params": 0.4,
+          "storageGb": 1.6,
+          "quants": [
+            "fp16"
+          ],
+          "tag": "https://huggingface.co/stabilityai/TripoSR/resolve/main/model.ckpt",
+          "downloads": []
+        }
+      ]
+    },
+    {
+      "id": "instantmesh-large",
+      "name": "InstantMesh Large",
+      "brand": "Tencent ARC",
+      "description": "Reconstruction 3D haute fidélité avec géométrie détaillée et textures UV.",
+      "license": "Apache-2.0",
+      "releaseDate": "2024-04-12",
+      "releaseYear": 2024,
+      "capabilities": [
+        "3d-gen"
+      ],
+      "variants": [
+        {
+          "size": "Q8_0 · 1.2B",
+          "params": 1.2,
+          "storageGb": 2.8,
+          "quants": [
+            "q8_0"
+          ],
+          "tag": "https://huggingface.co/TencentARC/InstantMesh/resolve/main/instant_mesh_large.ckpt",
+          "downloads": []
+        }
+      ]
+    }
+  ]
+}

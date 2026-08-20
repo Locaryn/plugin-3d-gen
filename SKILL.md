@@ -1,8 +1,8 @@
 ---
 name: 3d-generation
-description: Generate 3D meshes, OBJ, and GLTF assets from descriptions.
+description: Génération et exportation d'assets et maillages 3D (GLTF, GLB, OBJ) depuis une description textuelle.
 ---
 
-# 3D Asset Generation Skill
+# Compétence Génération 3D
 
-Use `generate_3d_model` when the user asks for 3D meshes or game assets.
+Utilisez `generate_3d_model` lorsque l'utilisateur souhaite créer des modèles 3D, des assets de jeu vidéo ou des maillages texturés.
